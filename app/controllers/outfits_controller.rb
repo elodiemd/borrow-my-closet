@@ -9,6 +9,8 @@ class OutfitsController < ApplicationController
 
   def create
     @outfit = Outfit.new(outfit_params)
+    @user = User.find(params[:user_id]) 
+    @outfit.user = @user
 
     if @outfit.save
       redirect_to @outfit, notice: 'Your outfit was succesfully created'
@@ -20,6 +22,6 @@ class OutfitsController < ApplicationController
   private
 
   def outfit_params
-    params.require(:outfit).permit(:name, :locationdescription, :price_per_day)
+    params.require(:outfit).permit(:name, :location, :description, :price_per_day)
   end
 end
