@@ -4,4 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :outfits
+
+  validates :user_name, uniqueness: true, length: { minimum: 3 }
 end
