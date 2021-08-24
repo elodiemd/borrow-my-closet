@@ -1,27 +1,25 @@
 <div class="container">
-  <h1 class="text-center my-5">Outfits</h1>
+  <h1 class="text-center my-3">Outfits</h1>
 
-  <div class="card-product">
-    <% @outfits.each do |outfit| %>
-      <%# Replace img below by the image uploaded by the user %>
-      <img src="https://unsplash.it/1300/600?random" />
+  <% @outfits.each do |outfit| %>
+    <div class="card-product">
+      <%= cl_image_tag outfit.photos.first.key %>
+
       <div class="card-product-infos">
         <div class="card-name">
-          <h2><%= outfit.name %></h2>
+          <h2><%= link_to "#{outfit.name}", outfit_path(outfit) %></h2>
+          <h3><%= outfit.location %></h3>
           <p><%= outfit.description %></p>
         </div>
-        <div class="card-loc-price">
-          <h3><%= outfit.location %></h3>
-          <h3><%= outfit.price_per_day %></h3>
+        <div class="card-price">
+          <h3><%= "#{outfit.price_per_day} €" %></h3>
         </div>
       </div>
-        <%= link_to 'Show Outfit', outfit_path(outfit), class:"btn btn-success w-100" %>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 
-
-<% if policy(Outfit).new? %>
-  <%= link_to 'Add new Outfit', new_outfit_path %>
-<% end %>
+  <% if policy(Outfit).new? %>
+    <%= link_to 'Add new Outfit', new_outfit_path %>
+  <% end %>
 
 </div>
