@@ -4,7 +4,7 @@
   <% @outfits.each do |outfit| %>
     <div class="card-product">
       <%= cl_image_tag outfit.photos.first.key %>
-
+      
       <div class="card-product-infos">
         <div class="card-name">
           <h2><%= link_to "#{outfit.name}", outfit_path(outfit) %></h2>

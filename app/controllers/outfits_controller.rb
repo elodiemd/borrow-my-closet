@@ -1,4 +1,6 @@
 class OutfitsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
     @outfits = policy_scope(Outfit).order(created_at: :desc) # replaces @outfits = Outfit.all
   end
