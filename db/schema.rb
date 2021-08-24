@@ -38,8 +38,7 @@ ActiveRecord::Schema.define(version: 2021_08_24_093844) do
 
   create_table "outfits", force: :cascade do |t|
     t.string "name"
-    t.string "location"
-    t.text "description"
+    t.text "locationdescription"
     t.float "price_per_day"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
