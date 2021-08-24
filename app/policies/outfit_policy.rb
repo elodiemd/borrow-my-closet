@@ -5,7 +5,11 @@ class OutfitPolicy < ApplicationPolicy
     end
   end
 
+  def show?
+    true
+  end
+
   def create?
-    true    
+    true
   end
 end
