@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class RestaurantPolicyTest < ActiveSupport::TestCase
+class OutfitPolicyTest < ActiveSupport::TestCase
   def test_scope
   end
 
