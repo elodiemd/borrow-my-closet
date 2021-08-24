@@ -16,7 +16,7 @@ class OutfitsController < ApplicationController
     authorize @outfit
 
     if @outfit.save
-      redirect_to outfits_path, notice: 'Your outfit was succesfully created'
+      redirect_to outfit_path(@outfit), notice: 'Your outfit was succesfully created'
     else
       render :new
     end
