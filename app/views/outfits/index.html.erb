@@ -1,1 +1,4 @@
 <h1>Outfits</h1>
+<% if policy(Outfit).create? %>
+  <%= link_to "New outfit", new_outfit_path %>
+<% end %>
