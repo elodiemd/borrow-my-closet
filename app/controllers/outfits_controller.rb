@@ -1,7 +1,11 @@
 class OutfitsController < ApplicationController
   def index
-    @outfits = Outfit.all
-    @outfits = policy_scope(Outfit).order(created_at: :desc)
+    @outfits = policy_scope(Outfit).order(created_at: :desc) # replaces @outfits = Outfit.all
+  end
+
+  def show
+    @outfit = Outfit.find(params[:id])
+    authorize @outfit
   end
 
   def new

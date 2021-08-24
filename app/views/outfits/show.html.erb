@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <%# Idea: possible to add several pictures & implement a carousel from Bootstrap? %>
+  <div class="outfit-namedesc">
+    <h2>
+      <strong><%= @outfit.name %></strong>
+    </h2>
+
+    <% @outfit.photos.each do |photo| %>
+      <%= cl_image_tag photo.key %>
+    <% end %>
+  </div>
+
+  <div class="card-product-infos">
+    <div class="card-name">
+      <p><%= @outfit.description %></p>
+    </div>
+    <div class="card-loc-price">
+      <h3><%= @outfit.location %></h3>
+      <h3><%= @outfit.price_per_day %></h3>
+    </div>
+  </div>
+
+  <%= link_to 'Outfits list', outfits_path %>
+</div>
