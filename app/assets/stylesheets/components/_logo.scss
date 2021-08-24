@@ -1,0 +1,19 @@
+.logo {
+  background-size: contain;
+  // background-position: center;
+  height: 150px;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+}
+
+
+.logo-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+  margin-top: 30px;
+  background-color: white;
+}
