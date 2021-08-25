@@ -1,30 +1,22 @@
-<p id="notice"><%= notice %></p>
+<div class="show-container">
 
-<div class="container my-3">
-  <h2><strong><%= @outfit.name %></strong></h2>
-</div>
+  <%# <% @outfits.each do |outfit| %>
+    <%# <%= cl_image_tag outfit.photos.first.key %>
+  <%# <% end %>
+    <% @outfit.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, class:"show-picture" %>
+    <% end %>
 
-<div class="container d-flex">
-  <%# Idea: possible to add several pictures & implement a carousel from Bootstrap? %>
-  <div class="outfit-name">
-    <div class="w-100">
-      <% @outfit.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, class:"w-50" %>
-      <% end %>
-    </div>
+  <div class="show-details">
+    <h2><%= @outfit.name %></h2>
+    <h3><%= @outfit.address %></h3>
+    <p><%= @outfit.description %></p>
+    <h3 class="show-price"><%= "#{@outfit.price_per_day} €" %></h3>
+    <div class="show-btn">Book</div>
   </div>
 
-  <div class="card-product-infos">
-    <div class="card-name">
-      <p><%= @outfit.description %></p>
-    </div>
-    <div class="card-loc-price">
-      <h3><%= @outfit.address %></h3>
-      <h3><%= @outfit.price_per_day %></h3>
-    </div>
-  </div>
 </div>
 
-<div class="container my-3">
-  <%= link_to 'Outfits list', outfits_path %>
+<div class="container">
+  <div id="map"></div>
 </div>
