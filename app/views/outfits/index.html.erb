@@ -1,25 +1,26 @@
 <div class="container">
   <h1 class="text-center my-3">Outfits</h1>
-    <div class="cards-trip">
-      <% @outfits.each do |outfit| %>
-        <div class="card-trip">
-          <%= cl_image_tag outfit.photos.first.key %>
-          
-          <div class="card-trip-infos">
-            <div>
-              <h2><%= outfit.name %></h2>
-              <h3><%= outfit.address %></h3>
-              <p><%= outfit.description %></p>
-            </div>
-            <h2><%= "#{outfit.price_per_day} €" %></h2>
+  <div class="cards-trip">
+    <% @outfits.each do |outfit| %>
+      <div class="card-trip">
+        <%= cl_image_tag outfit.photos.first.key %>
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= outfit.name %></h2>
+            <h3><%= outfit.address %></h3>
+            <p><%= outfit.description %></p>
           </div>
+          <h2><%= "#{outfit.price_per_day} €" %></h2>
         </div>
-      <% end %>
-    </div>
-  <img id="map" src="#">
-
+      </div>
+    <% end %>
+  </div>
+  <div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
   <%# <% if policy(Outfit).new? %>
-    <%# <%= link_to 'Add new Outfit', new_outfit_path %>
+  <%# <%= link_to 'Add new Outfit', new_outfit_path %>
   <%# <% end %>
-
 </div>
