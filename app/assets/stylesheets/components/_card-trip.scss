@@ -1,0 +1,107 @@
+.cards-trip {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px 20px;
+  flex-grow: 1;
+  padding: 10px 10px 40px 10px;
+}
+
+.card-trip {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+// how to adapt the picture size?
+
+.card-trip > img {
+  height: 250px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-trip:hover {
+  transform: scale(1.05);
+}
+
+.card-trip-infos h2,
+h3,
+p {
+  padding: 5px 0px;
+  margin: 0;
+}
+
+.card-trip-infos h2 {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.card-trip-infos h3 {
+  font-size: 18px;
+  font-weight: 200;
+}
+
+.card-trip p {
+  font-size: 15px;
+  opacity: 0.7;
+}
+
+.card-trip .card-trip-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-trip-infos .card-trip-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+
+h1 {
+  padding-top: 20px;
+}
+
+// #map {
+//   height: 100vh;
+//   position: sticky;
+//   top: 0;
+// }
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .cards-trip {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .cards-trip {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .cards-trip {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .cards-trip {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .cards-trip {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

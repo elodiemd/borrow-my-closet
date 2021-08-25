@@ -1,25 +1,25 @@
 <div class="container">
   <h1 class="text-center my-3">Outfits</h1>
+    <div class="cards-trip">
+      <% @outfits.each do |outfit| %>
+        <div class="card-trip">
+          <%= cl_image_tag outfit.photos.first.key %>
 
-  <% @outfits.each do |outfit| %>
-    <div class="card-product">
-      <%= cl_image_tag outfit.photos.first.key %>
-      
-      <div class="card-product-infos">
-        <div class="card-name">
-          <h2><%= link_to "#{outfit.name}", outfit_path(outfit) %></h2>
-          <h3><%= outfit.location %></h3>
-          <p><%= outfit.description %></p>
+          <div class="card-trip-infos">
+            <div>
+              <h2><%= outfit.name %></h2>
+              <h3><%= outfit.location %></h3>
+              <p><%= outfit.description %></p>
+            </div>
+            <h2><%= "#{outfit.price_per_day} €" %></h2>
+          </div>
         </div>
-        <div class="card-price">
-          <h3><%= "#{outfit.price_per_day} €" %></h3>
-        </div>
-      </div>
+      <% end %>
     </div>
-  <% end %>
+  <img id="map" src="#">
 
-  <% if policy(Outfit).new? %>
-    <%= link_to 'Add new Outfit', new_outfit_path %>
-  <% end %>
+  <%# <% if policy(Outfit).new? %>
+    <%# <%= link_to 'Add new Outfit', new_outfit_path %>
+  <%# <% end %>
 
 </div>
