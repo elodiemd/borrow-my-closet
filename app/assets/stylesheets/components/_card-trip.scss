@@ -6,6 +6,11 @@
   padding: 10px 10px 40px 10px;
 }
 
+.cards-trip a {
+  text-decoration: none;
+  color: black;
+}
+
 .card-trip {
   overflow: hidden;
   background: white;
@@ -15,7 +20,7 @@
 // how to adapt the picture size?
 
 .card-trip > img {
-  height: 250px;
+  // height: 250px;
   width: 100%;
   object-fit: cover;
 }
@@ -32,7 +37,7 @@ p {
 }
 
 .card-trip-infos h2 {
-  font-size: 25px;
+  font-size: 20px;
   font-weight: bold;
 }
 
