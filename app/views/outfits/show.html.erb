@@ -1,4 +1,4 @@
-<div class="show-container">
+<div class="show-container d-flex justify-content-center mt-5 mb-5">
 
   <%# <% @outfits.each do |outfit| %>
     <%# <%= cl_image_tag outfit.photos.first.key %>
@@ -9,7 +9,6 @@
 
   <div class="show-details">
     <h2><%= @outfit.name %></h2>
-    <h3><%= @outfit.address %></h3>
     <p><%= @outfit.description %></p>
     <h3 class="show-price"><%= "#{@outfit.price_per_day} €" %></h3>
     <div class="show-btn">Book

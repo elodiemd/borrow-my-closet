@@ -66,7 +66,7 @@ outfit9.save
 
 outfit10 = Outfit.new(name: "Gentlemen Suit", address: "Kattenburgerstraat 292, 1018 JL Amsterdam", description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.", price_per_day: 40.5, user: user1)
 file = URI.open('https://res.cloudinary.com/dcejjfcie/image/upload/v1629884448/seed/15_wkvhvq.jpg')
-outfit8.photos.attach(io: file, filename: '15.jpg', content_type: 'image/jpg')
+outfit10.photos.attach(io: file, filename: '15.jpg', content_type: 'image/jpg')
 outfit10.save
 
 puts "done"
