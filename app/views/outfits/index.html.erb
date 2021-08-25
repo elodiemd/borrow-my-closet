@@ -1,6 +1,5 @@
 <div class="container">
   <h1 class="text-center my-3">Outfits</h1>
-
     <div class="cards-trip">
       <% @outfits.each do |outfit| %>
         <%= link_to outfit_path(outfit) do %>
@@ -20,10 +19,12 @@
       <% end %>
       <% end %>
     </div>
-  <img id="map" src="#">
-
-  <%# <% if policy(Outfit).new? %>
-    <%# <%= link_to 'Add new Outfit', new_outfit_path %>
-  <%# <% end %>
-
+  <div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+  <% if policy(Outfit).new? %>
+    <%= link_to 'Add new Outfit', new_outfit_path %>
+  <% end %>
 </div>
