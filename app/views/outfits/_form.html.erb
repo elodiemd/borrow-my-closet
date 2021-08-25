@@ -1,7 +1,7 @@
 <%= simple_form_for @outfit, class: "form form-outfit" do |f| %>
   <%= f.input :name %>
   <%= f.input :description %>
-  <%= f.input :location %>
+  <%= f.input :address %>
   <%= f.input :price_per_day %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <hr>
