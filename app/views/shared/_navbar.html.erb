@@ -15,9 +15,17 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <button name="button" type="submit" class="btn btn-gradient">
-          <i class="fas fa-search"></i> Search
-        </button>
+        <%# Search feature %>
+
+        <%= form_tag outfits_path, method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            # class: "form-control",
+            class: "btn btn-gradient",
+            placeholder: "Find an outfit"
+          %>
+        <% end %>
+
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">

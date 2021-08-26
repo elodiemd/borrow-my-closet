@@ -22,8 +22,6 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'devise'
-gem 'cloudinary', '~> 1.16.0'
 gem 'dotenv-rails', groups: [:development, :test]
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -38,6 +36,7 @@ gem 'pundit'
 gem 'geocoder'
 gem 'devise'
 gem 'cloudinary', '~> 1.16.0'
+gem 'pg_search', '~> 2.3.0'
 
 
 group :development, :test do
