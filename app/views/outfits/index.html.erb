@@ -11,12 +11,11 @@
               <%= cl_image_tag outfit.photos.first.key %>
             <% end %>
           <div class="card-trip-infos">
-            <div>
-              <h2><%= outfit.name %></h2>
-              <h3><%= outfit.address %></h3>
+            <h2><%= outfit.name %></h2>
+            <div class="description">
               <p><%= outfit.description %></p>
+            <h3><%= "#{outfit.price_per_day}€" %></h3>
             </div>
-            <h2><%= "#{outfit.price_per_day}€" %></h2>
           </div>
         </div>
       <% end %>
