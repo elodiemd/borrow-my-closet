@@ -1,43 +1,59 @@
+// #AF5D42 // #89543A // 4A4A4A
+
 .btn-ghost {
-  color: #4a4a4a;
-  border: 1px solid #4a4a4a;
-  padding: 8px 24px;
-  border-radius: 50px;
+  color: white;
+  border: 1px solid #AF5D42;
+  background-color: #AF5D42;
+  padding: 15px 30px;
+  border-radius: 40px;
   font-weight: lighter;
-  opacity: 0.6;
   transition: opacity 0.3s ease;
+  font-size: 20px;
+  margin-right: 50px;
 }
 
 .btn-ghost:hover {
   opacity: 1;
+  color: white;
+  background-color: #AF5D42;
+  opacity: 0.7;
+  font-weight: bold;
 }
 
 .btn-flat {
   color: white;
-  padding: 8px 30px;
-  border-radius: 4px;
-  background: #9a938f;
+  padding: 15px 30px;
+  border-radius: 40px;
+  background: #9A938F;
   transition: 0.3s ease;
-  font-weight: bold;
+  font-weight: lighter;
   font-size: 20px;
+  margin-right: 50px;
 }
 
 .btn-flat:hover {
-  background: #bf5c06;
+  background: #9A938F;
   color: white;
+  opacity: 0.8;
 }
 
 .btn-gradient {
-  color: white;
-  padding: 8px 24px;
-  border-radius: 4px;
-  font-weight: bold;
-  background: linear-gradient(#167ffb, #0f60c4);
-  transition: background 0.3s ease;
-  border: 1px solid #0f60c4;
+  color: #AF5D42;
+  border: 1px solid #AF5D42;
+  padding: 15px 30px;
+  border-radius: 40px;
+  font-weight: bolder;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  font-size: 20px;
+  padding: 15px 30px;
+  margin-right: 50px;
+
 }
 
 .btn-gradient:hover {
-  background: linear-gradient(#147eff, #0f67da);
-  color: white;
+  color: #AF5D42;
+  border: 3px solid #AF5D42;
+  font-weight: bolder;
+  text-decoration: none;
 }
