@@ -22,18 +22,22 @@
 
 .btn-flat {
   color: white;
-  padding: 3px 20px;
+  padding: 5px 25px;
   border-radius: 40px;
   background: #9A938F;
   transition: 0.3s ease;
   font-weight: lighter;
   font-size: 15px;
+  border: 1px solid #9A938F;
 }
 
 .btn-flat:hover {
   background: #9A938F;
   color: white;
   opacity: 0.8;
+  font-weight: bolder;
+  text-decoration: none;
+
 }
 
 .btn-gradient {

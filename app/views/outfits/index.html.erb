@@ -1,9 +1,11 @@
-  <h1 class="text-center my-3">Outfits</h1>
+  <h1 class="text-center my-3">Find the perfect <em>Outfit</em> ✨</h1>
   <% if policy(Outfit).new? %>
-    <%= link_to 'Add new Outfit', new_outfit_path %>
+  <div class="container text-center pt-5">
+    <%= link_to 'Add new Outfit', new_outfit_path, class:"btn-flat"%>
   <% end %>
-<div class="container d-flex">
-    <div class="cards-trip col-6">
+  <div>
+<div class="container d-flex pt-5">
+    <div class="cards-trip col-6 pr-5">
       <% @outfits.each do |outfit| %>
         <%= link_to outfit_path(outfit) do %>
          <div class="card-trip">
