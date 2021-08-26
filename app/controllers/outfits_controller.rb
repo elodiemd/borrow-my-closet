@@ -2,7 +2,15 @@ class OutfitsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @outfits = policy_scope(Outfit).order(created_at: :desc) # replaces @outfits = Outfit.all
+    # Search feature
+    if params[:query]
+      @outfits = Outfit.search_by_name_address_and_description(params[:query])
+    else
+      @outfits = policy_scope(Outfit).order(created_at: :desc) # replaces @outfits = Outfit.all
+    end
+    policy_scope @outfits
+
+    # Map feature
     @markers = @outfits.geocoded.map do |outfit|
       {
         lat: outfit.latitude,
