@@ -37,7 +37,7 @@
 // }
 
 .card-trip-infos .description {
-  font-size: 20px;
+  font-size: 12px;
   font-weight: bold;
   text-align: left;
   display: flex;
@@ -48,7 +48,7 @@
 
 
 .card-trip-infos h2 {
-  font-size: 20px;
+  font-size: 15px;
   font-weight: bold;
   padding-top: 15px;
   padding-left: 15px;
@@ -125,6 +125,7 @@ h1 {
 @media (min-width: 768px) {
   .cards-trip {
     grid-template-columns: 1fr 1fr;
+
   }
 }
 
