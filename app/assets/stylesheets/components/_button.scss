@@ -50,6 +50,7 @@
   transition: opacity 0.3s ease;
   font-size: 15px;
   margin-right: 25px;
+  text-align: center;
 
 }
 
@@ -58,4 +59,9 @@
   border: 3px solid #AF5D42;
   font-weight: bolder;
   text-decoration: none;
+}
+
+::placeholder {
+  color: #AF5D42;
+  opacity: 1;
 }
