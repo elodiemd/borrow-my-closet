@@ -16,7 +16,7 @@ class OutfitsController < ApplicationController
         lat: outfit.latitude,
         lng: outfit.longitude,
         info_window: render_to_string(partial: "info_window", locals: { outfit: outfit }), # popups on map
-        image_url: helpers.asset_url('dress-stylish.png') # custom map marker
+        image_url: helpers.asset_url('map_marker.png') # custom map marker
       }
     end
   end
@@ -24,6 +24,12 @@ class OutfitsController < ApplicationController
   def show
     @outfit = Outfit.find(params[:id])
     authorize @outfit
+    @marker = {
+      lat: @outfit.latitude,
+      lng: @outfit.longitude,
+      info_window: render_to_string(partial: "info_window", locals: { outfit: @outfit }), # popups on map
+      image_url: helpers.asset_url('map_marker.png') # custom map marker
+    }
   end
 
   def new
