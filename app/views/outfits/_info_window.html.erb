@@ -1,2 +1,5 @@
-<h2><%= outfit.name %></h2>
-<p><%= outfit.address %></p>
+<%= link_to outfit_path(outfit) do %>
+  <%= cl_image_tag outfit.photos.first.key, class:"avatar" %>
+  <h2><%= outfit.name %></h2>
+  <p><%= outfit.address %></p>
+<% end %>
