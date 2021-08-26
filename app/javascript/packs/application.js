@@ -29,10 +29,12 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import { loadDynamicBannerText } from '../components/banner';
 import { initMapbox } from '../plugins/init_mapbox';
+import { initAutocomplete } from '../plugins/init_autocomplete'
 
 document.addEventListener('turbolinks:load', () => {
-  loadDynamicBannerText();
-  initMapbox();
+  loadDynamicBannerText(); // typed text on banner
+  initMapbox(); // map
+  initAutocomplete(); // address autocomplete
   // Call your functions here, e.g:
   // initSelect2();
 });

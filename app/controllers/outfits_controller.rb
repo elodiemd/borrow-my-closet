@@ -7,7 +7,8 @@ class OutfitsController < ApplicationController
       {
         lat: outfit.latitude,
         lng: outfit.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { outfit: outfit })
+        info_window: render_to_string(partial: "info_window", locals: { outfit: outfit }), # popups on map
+        image_url: helpers.asset_url('dress-stylish.png') # custom map marker
       }
     end
   end

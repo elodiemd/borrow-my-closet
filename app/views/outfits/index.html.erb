@@ -3,7 +3,7 @@
     <%= link_to 'Add new Outfit', new_outfit_path %>
   <% end %>
 <div class="container d-flex">
-    <div class="cards-trip">
+    <div class="cards-trip col-6">
       <% @outfits.each do |outfit| %>
         <%= link_to outfit_path(outfit) do %>
          <div class="card-trip">
@@ -22,8 +22,8 @@
       <% end %>
     </div>
   <div id="map"
-     class="map map-index"
-     style="width: 100%; height: 600px;"
+     class="map map-index col-6"
+     style="width: 100%; height: 90vh;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
