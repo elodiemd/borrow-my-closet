@@ -11,7 +11,8 @@
     <h2><%= @outfit.name %></h2>
     <p><%= @outfit.description %></p>
     <h3 class="show-price"><%= "#{@outfit.price_per_day} €" %></h3>
-    <div class="show-btn">Book
+    <div class="container text-center">
+    <button class="btn-flat">Book</button>
     </div>
   </div>
 
@@ -21,6 +22,6 @@
   <div id="map"></div>
 </div>
 
-<div class="container">
+<div class="container text-center">
   <%= link_to 'Back', outfits_path, class:"btn-ghost btn-back" %>
 </div>
