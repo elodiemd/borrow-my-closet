@@ -14,6 +14,11 @@ User.destroy_all
 puts "creating user"
 user1 = User.create!(email: "claire@lewagon.com", password: 'happybirthday', user_name: "claire")
 
+outfit10 = Outfit.new(name: "Gentlemen Suit", address: "Kattenburgerstraat 292, Amsterdam", description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.", price_per_day: 40.5, user: user1)
+file = URI.open('https://res.cloudinary.com/dcejjfcie/image/upload/v1629884448/seed/15_wkvhvq.jpg')
+outfit10.photos.attach(io: file, filename: '15.jpg', content_type: 'image/jpg')
+outfit10.save
+
 outfit3 = Outfit.new(name: "Wonderful Grey suits", address: "Valschermkade 19, Amsterdam", description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.", price_per_day: 30.5, user: user1)
 file = URI.open('https://res.cloudinary.com/dcejjfcie/image/upload/v1629884448/seed/13_jgnqtn.jpg')
 outfit3.photos.attach(io: file, filename: '13.jpg', content_type: 'image/jpg')
@@ -39,15 +44,15 @@ file = URI.open('https://res.cloudinary.com/dcejjfcie/image/upload/v1629884448/s
 outfit7.photos.attach(io: file, filename: '10.jpg', content_type: 'image/jpg')
 outfit7.save
 
-outfit8 = Outfit.new(name: "Beautiful Zadig dress", address: "Bosboom Toussaintstraat 45-H, Amsterdam", description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.", price_per_day: 40.5, user: user1)
-file = URI.open('https://res.cloudinary.com/dcejjfcie/image/upload/v1629884449/seed/9_xg0yyp.jpg')
-outfit8.photos.attach(io: file, filename: '9.jpg', content_type: 'image/jpg')
-outfit8.save
-
 outfit9 = Outfit.new(name: "Couple black & red outfit", address: "Haarlemmerdijk 159 - 163, Amsterdam", description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.", price_per_day: 40.5, user: user1)
 file = URI.open('https://res.cloudinary.com/dcejjfcie/image/upload/v1629884449/seed/17_dau5ua.jpg')
 outfit9.photos.attach(io: file, filename: '17.jpg', content_type: 'image/jpg')
 outfit9.save
+
+outfit8 = Outfit.new(name: "Beautiful Zadig dress", address: "Bosboom Toussaintstraat 45-H, Amsterdam", description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.", price_per_day: 40.5, user: user1)
+file = URI.open('https://res.cloudinary.com/dcejjfcie/image/upload/v1629884449/seed/9_xg0yyp.jpg')
+outfit8.photos.attach(io: file, filename: '9.jpg', content_type: 'image/jpg')
+outfit8.save
 
 outfit1 = Outfit.new(name: "Fancy Hugo Boss Suit", address: "IJsbaanpad 9, Amsterdam", description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.", price_per_day: 40.5, user: user1)
 file = URI.open('https://res.cloudinary.com/dcejjfcie/image/upload/v1629884449/seed/1_ffw3q0.jpg')
@@ -64,9 +69,5 @@ file = URI.open('https://res.cloudinary.com/dcejjfcie/image/upload/v1629884448/s
 outfit3.photos.attach(io: file, filename: '7.jpg', content_type: 'image/jpg')
 outfit3.save
 
-outfit10 = Outfit.new(name: "Gentlemen Suit", address: "Kattenburgerstraat 292, Amsterdam", description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.", price_per_day: 40.5, user: user1)
-file = URI.open('https://res.cloudinary.com/dcejjfcie/image/upload/v1629884448/seed/15_wkvhvq.jpg')
-outfit10.photos.attach(io: file, filename: '15.jpg', content_type: 'image/jpg')
-outfit10.save
 
 puts "done"
