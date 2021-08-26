@@ -1,27 +1,28 @@
-<div class="show-container d-flex justify-content-center mt-5 mb-5">
-
-  <%# <% @outfits.each do |outfit| %>
-    <%# <%= cl_image_tag outfit.photos.first.key %>
-  <%# <% end %>
-    <% @outfit.photos.each do |photo| %>
-      <%= cl_image_tag photo.key, class:"show-picture" %>
-    <% end %>
-
-  <div class="show-details">
-    <h2><%= @outfit.name %></h2>
-    <p><%= @outfit.description %></p>
-    <h3 class="show-price"><%= "#{@outfit.price_per_day} €" %></h3>
-    <div class="container text-center">
-    <button class="btn-flat">Book</button>
+<div>
+  <div class="container text-left mt-5">
+    <%= link_to 'Back', outfits_path, class:"btn-ghost btn-back" %>
+  </div>
+  <div class="show-container d-flex justify-content-center mt-5 mb-2">
+    <%# <% @outfits.each do |outfit| %>
+      <%# <%= cl_image_tag outfit.photos.first.key %>
+      <%# <% end %>
+      <% @outfit.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, class:"show-picture" %>
+      <% end %>
+      <div class="show-details">
+        <h2><%= @outfit.name %></h2>
+        <p><%= @outfit.description %></p>
+        <h3 class="show-price"><%= "#{@outfit.price_per_day} €" %></h3>
+        <div class="container text-center">
+          <button class="btn-flat">Book</button>
+        </div>
+      </div>
+    </div>
+    <div id="map"
+     class="map-show mx-auto"
+     style="width: 1100px; height: 50vh;"
+     data-markers="<%= @marker.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
-
-</div>
-
-<div class="container">
-  <div id="map"></div>
-</div>
-
-<div class="container text-center">
-  <%= link_to 'Back', outfits_path, class:"btn-ghost btn-back" %>
 </div>
