@@ -6,7 +6,8 @@ class OutfitsController < ApplicationController
     @markers = @outfits.geocoded.map do |outfit|
       {
         lat: outfit.latitude,
-        lng: outfit.longitude
+        lng: outfit.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { outfit: outfit })
       }
     end
   end

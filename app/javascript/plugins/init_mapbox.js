@@ -4,6 +4,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
+
   const fitMapToMarkers = (map, markers) => {
     const bounds = new mapboxgl.LngLatBounds();
     markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
@@ -16,14 +17,18 @@ const initMapbox = () => {
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v10'
     });
+
     const markers = JSON.parse(mapElement.dataset.markers);
     markers.forEach((marker) => {
+      const popup = new mapboxgl.Popup().setHTML(marker.info_window);
+
       new mapboxgl.Marker()
         .setLngLat([ marker.lng, marker.lat ])
+        .setPopup(popup)
         .addTo(map);
     });
-    fitMapToMarkers(map, markers);
 
+    fitMapToMarkers(map, markers);
   }
 };
 
