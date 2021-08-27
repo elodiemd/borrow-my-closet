@@ -33,7 +33,8 @@
       <ul>
         <% @bookings_lender_pending.each do |booking| %>
           <li>
-            <%= booking.outfit.name %> - from: <%= booking.start_date %>, to: <%= booking.end_date %>, by <%= booking.user.user_name %>
+            <%= booking.outfit.name %> - from: <%= booking.start_date %>, to: <%= booking.end_date %>, by <%= booking.user.user_name %> | 
+      Actions: <%= button_to "Accept", accept_booking_path(booking), method: 'patch' %> || <%= button_to "Reject", reject_booking_path(booking), method: 'patch' %>
           </li>
         <% end %>
       </ul>

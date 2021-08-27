@@ -9,4 +9,14 @@ class BookingPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def accept?
+    true
+    # record.user == current.user
+  end
+
+  def reject?
+    true
+    # record.user == current.user
+  end
 end

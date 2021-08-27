@@ -32,12 +32,27 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to outfit_path(@outfit), notice: 'Your booking has been created and is currently pending for approval'
     else
+      booked_dates
       render :new
     end
   end
 
-  private
+  def accept
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.update(status: "accepted")
+    redirect_to bookings_path
+  end
 
+  def reject
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.update(status: "rejected")
+    redirect_to bookings_path
+  end
+
+  private
+  
   def booking_params
     params.require(:booking).permit(:start_date, :end_date)
   end
@@ -49,7 +64,6 @@ class BookingsController < ApplicationController
   end
 
   def booked_dates
-    # doesn't work properly yet, affects all the bookings, not just the ones of the outfit
-    @booked_dates = Booking.where(outfit: @outfit).map { |booking| { from: booking[:start_date].to_s, to: booking[:end_date].to_s } }
+    @booked_dates = Booking.where(outfit: @outfit, status: ('pending' || 'accepted')).map { |booking| { from: booking[:start_date].to_s, to: booking[:end_date].to_s } }
   end
 end

@@ -3,6 +3,6 @@
 
   <%= simple_form_for [@outfit, @booking] do |f| %>
     <%= f.input :start_date, as: :string, required: false, input_html: { class: "datepicker", data: { dates: @booked_dates.to_json }} %>
-    <%= f.button :submit, "Go", class: "btn btn-primary" %>
+    <%= f.button :submit, "Go", class: "btn-flat" %>
   <% end %>
 </div>
