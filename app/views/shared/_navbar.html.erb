@@ -1,59 +1,48 @@
   <%# <div class="row"> %>
-
-    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon d-flex">
-      <%= link_to root_path, class: "navbar-brand" do %>
-        <%= image_tag "https://i.pinimg.com/originals/da/57/80/da5780f125af8ccbed7a84150e89fcad.png" %>
-      <% end %>
-
-      <div class="d-flex 5">
-        <%= link_to outfits_path do %>
-          <button name="button" type="submit" class="btn btn-ghost"> Discover the outfits
-          </button>
-        <% end %>
-
-        <button class="navbar-toggler mr-5 ml-5" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <%# Search feature %>
-
-        <%= form_tag outfits_path, method: :get do %>
-          <%= text_field_tag :query,
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon d-flex">
+  <%= link_to root_path, class: "navbar-brand" do %>
+    <%= image_tag "https://i.pinimg.com/originals/da/57/80/da5780f125af8ccbed7a84150e89fcad.png" %>
+  <% end %>
+  <div class="d-flex 5">
+    <%= link_to outfits_path do %>
+      <button name="button" type="submit" class="btn btn-ghost"> Discover the outfits
+      </button>
+    <% end %>
+    <button class="navbar-toggler mr-5 ml-5" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <%# Search feature %>
+    <%= form_tag outfits_path, method: :get do %>
+      <%= text_field_tag :query,
             params[:query],
             # class: "form-control",
             class: "btn-gradient btn-search",
             placeholder: "Find an outfit 🔎"
           %>
-        <% end %>
-
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <% if user_signed_in? %>
-              <li class="nav-item active">
-                <%= link_to "Home", "#", class: "nav-link" %>
-              </li>
-              <li class="nav-item">
-                <%= link_to "Messages", "#", class: "nav-link" %>
-              </li>
-              <li class="nav-item dropdown">
-                <%= image_tag "https://cdn.cliqueinc.com/posts/268583/anna-wintour-least-favorite-trends-268583-1537896131149-square.700x0c.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                  <%= link_to "Action", "#", class: "dropdown-item" %>
-                  <%= link_to "Another action", "#", class: "dropdown-item" %>
-                  <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-                </div>
-              </li>
+    <% end %>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <% if user_signed_in? %>
+          <li class="nav-item dropdown">
+            <% if user_signed_in? && current_user.photo.attached? %>
+              <%# Avatar picture %>
+              <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% else %>
-              <li class="nav-item">
-                <%= link_to "Login", new_user_session_path, class: "btn-gradient" %>
-              </li>
+              <%# Default picture %>
+              <%= image_tag "https://cdn.cliqueinc.com/posts/268583/anna-wintour-least-favorite-trends-268583-1537896131149-square.700x0c.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% end %>
-          </ul>
-        </div>
-
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <%= link_to "Manage bookings", bookings_path, class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            </div>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "btn-gradient" %>
+          </li>
+        <% end %>
+      </ul>
     </div>
-
-    </div>
-
+  </div>
+</div>
 </div>
