@@ -8,14 +8,24 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 # Movie.create(title: "Wonder Woman 1984", overview: "Wonder Woman comes into conflict with the Soviet Union during the Cold War in the 1980s", poster_url: "https://image.tmdb.org/t/p/original/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg", rating: 6.9)
+Booking.destroy_all
 Outfit.destroy_all
 User.destroy_all
-Booking.destroy_all
 
 puts "creating user"
-user1 = User.create!(email: "claire@lewagon.com", password: 'happybirthday', user_name: "claire")
-user2 = User.create!(email: "george@lewagon.com", password: '123456', user_name: "george")
-user3 = User.create!(email: "mel@lewagon.com", password: '123456', user_name: "mel")
+
+user1 = User.new(email: "claire@lewagon.com", password: 'happybirthday', user_name: "claire")
+file = URI.open('https://res.cloudinary.com/dcejjfcie/image/upload/v1630057592/seed/11_1_gn6utz.jpg')
+user1.photo.attach(io: file, filename: 'u1.jpg', content_type: 'image/jpg')
+user1.save
+
+user2 = User.new(email: "george@lewagon.com", password: '123456', user_name: "george")
+user2.photo.attach(io: file, filename: 'u2.jpg', content_type: 'image/jpg')
+user2.save
+
+user3 = User.new(email: "mel@lewagon.com", password: '123456', user_name: "mel")
+user3.photo.attach(io: file, filename: 'u3.jpg', content_type: 'image/jpg')
+user3.save
 
 outfit11 = Outfit.new(name: "Black Chanel Combi", address: "Bosboom Toussaintstraat 45-H, Amsterdam", description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.", price_per_day: 40.5, user: user3)
 file = URI.open('https://res.cloudinary.com/dcejjfcie/image/upload/v1630057592/seed/11_1_gn6utz.jpg')
