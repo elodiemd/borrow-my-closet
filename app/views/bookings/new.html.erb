@@ -1,7 +1,9 @@
-<h1>New booking</h1>
-
-<div class="container">
-  <%= render 'form' %>
+<div>
+  <h1 class="text-center my-5">New booking</h1>
+  <div class="container text-left mt-5">
+    <%= link_to 'Back', outfit_path(@outfit), class:"btn-ghost btn-back" %>
+  </div>
+  <div class="container">
+    <%= render 'form' %>
+  </div>
 </div>
-
-

@@ -1,8 +1,6 @@
 <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
-  <h2>Book the outfit</h2>
-
   <%= simple_form_for [@outfit, @booking] do |f| %>
-    <%= f.input :start_date, as: :string, required: false, input_html: { class: "datepicker", data: { dates: @booked_dates.to_json }} %>
-    <%= f.button :submit, "Go", class: "btn-flat" %>
+    <%= f.input :start_date, as: :string, required: false, label: "Choose dates", input_html: { class: "datepicker text-center", data: { dates: @booked_dates.to_json }} %>
+    <%= f.button :submit, "Book", class: "btn-flat col-12" %>
   <% end %>
 </div>

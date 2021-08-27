@@ -1,9 +1,9 @@
 import flatpickr from "flatpickr";
 
-const setTodaysDate = () => {
-  const date = new Date()
-  return date.setDate(date.getDate() - 1)
-}
+// const setTodaysDate = () => {
+//   const date = new Date()
+//   return date.setDate(date.getDate() - 1)
+// }
 
 
 const initFlatpickr = () => {
