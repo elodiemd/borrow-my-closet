@@ -25,9 +25,6 @@
   object-fit: cover;
 }
 
-.card-book:hover {
-  transform: scale(1.05);
-}
 
 // .card-book-infos h2,
 // h3,
@@ -48,11 +45,11 @@
 
 
 .card-book-infos h2 {
-  font-size: 15px;
+  font-size: 8px;
   font-weight: bold;
-  padding-top: 15px;
-  padding-left: 15px;
-  text-align: left;
+  padding-top: 10px;
+  padding-left: 10px;
+  text-align: center
 }
 
 .card-book-infos h3 {
@@ -63,7 +60,7 @@
 }
 
 
-.card-trip p {
+.card-book p {
   font-size: 15px;
   opacity: 0.7;
 }
@@ -77,7 +74,7 @@
 //   position: relative;
 // }
 
-.card-trip .card-trip-infos p h3{
+.card-book .card-book-infos p h3{
   padding-left: 20px;
   padding-right: 20px;
   display: flex;
@@ -87,7 +84,7 @@
   position: relative;
 }
 
-.card-trip-infos .card-trip-user {
+.card-book-infos .card-book-user {
   position: absolute;
   right: 16px;
   top: -20px;
@@ -106,21 +103,21 @@ h1 {
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
-  .cards-trip {
+  .cards-book {
     grid-template-columns: 1fr;
   }
 }
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
-  .cards-trip {
+  .cards-book {
     grid-template-columns: 1fr;
   }
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
-  .cards-trip {
+  .cards-book {
     grid-template-columns: 1fr 1fr;
 
   }
@@ -128,14 +125,14 @@ h1 {
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
-  .cards-trip {
+  .cards-book {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
-  .cards-trip {
+  .cards-book {
     grid-template-columns: 1fr 1fr;
   }
 }
