@@ -1,4 +1,4 @@
-.cards-trip {
+.cards-book {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 30px 20px;
@@ -6,12 +6,12 @@
   padding: 10px 10px 40px 10px;
 }
 
-.cards-trip a {
+.cards-book a {
   text-decoration: none;
   color: black;
 }
 
-.card-trip {
+.card-book {
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
@@ -19,24 +19,24 @@
 
 // how to adapt the picture size?
 
-.card-trip > img {
+.card-book > img {
   // height: 250px;
   width: 100%;
   object-fit: cover;
 }
 
-.card-trip:hover {
+.card-book:hover {
   transform: scale(1.05);
 }
 
-// .card-trip-infos h2,
+// .card-book-infos h2,
 // h3,
 // p {
 //   padding: 5px 0px;
 //   margin: 0;
 // }
 
-.card-trip-infos .description {
+.card-book-infos .description {
   font-size: 12px;
   font-weight: bold;
   text-align: left;
@@ -47,7 +47,7 @@
 }
 
 
-.card-trip-infos h2 {
+.card-book-infos h2 {
   font-size: 15px;
   font-weight: bold;
   padding-top: 15px;
@@ -55,16 +55,13 @@
   text-align: left;
 }
 
-.card-trip-infos h3 {
+.card-book-infos h3 {
   font-size: 20px;
   font-weight: bold;
   text-align: right;
 
 }
 
-.card-trip {
-  height: 500px;
-}
 
 .card-trip p {
   font-size: 15px;

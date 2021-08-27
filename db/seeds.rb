@@ -20,10 +20,12 @@ user1.photo.attach(io: file, filename: 'u1.jpg', content_type: 'image/jpg')
 user1.save
 
 user2 = User.new(email: "george@lewagon.com", password: '123456', user_name: "george")
+file = URI.open('https://res.cloudinary.com/dcejjfcie/image/upload/v1630057592/seed/11_1_gn6utz.jpg')
 user2.photo.attach(io: file, filename: 'u2.jpg', content_type: 'image/jpg')
 user2.save
 
 user3 = User.new(email: "mel@lewagon.com", password: '123456', user_name: "mel")
+file = URI.open('https://res.cloudinary.com/dcejjfcie/image/upload/v1630057592/seed/11_1_gn6utz.jpg')
 user3.photo.attach(io: file, filename: 'u3.jpg', content_type: 'image/jpg')
 user3.save
 
