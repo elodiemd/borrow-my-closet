@@ -15,17 +15,17 @@ User.destroy_all
 puts "creating user"
 
 user1 = User.new(email: "claire@lewagon.com", password: 'happybirthday', user_name: "claire")
-file = URI.open('https://res.cloudinary.com/dcejjfcie/image/upload/v1630057592/seed/11_1_gn6utz.jpg')
+file = URI.open('https://res.cloudinary.com/dcejjfcie/image/upload/v1630068684/u1_anfsik.jpg')
 user1.photo.attach(io: file, filename: 'u1.jpg', content_type: 'image/jpg')
 user1.save
 
 user2 = User.new(email: "george@lewagon.com", password: '123456', user_name: "george")
-file = URI.open('https://res.cloudinary.com/dcejjfcie/image/upload/v1630057592/seed/11_1_gn6utz.jpg')
+file = URI.open('https://res.cloudinary.com/dcejjfcie/image/upload/v1630068685/u2_evw1ro.jpg')
 user2.photo.attach(io: file, filename: 'u2.jpg', content_type: 'image/jpg')
 user2.save
 
 user3 = User.new(email: "mel@lewagon.com", password: '123456', user_name: "mel")
-file = URI.open('https://res.cloudinary.com/dcejjfcie/image/upload/v1630057592/seed/11_1_gn6utz.jpg')
+file = URI.open('https://res.cloudinary.com/dcejjfcie/image/upload/v1630068685/u3_fjugsq.jpg')
 user3.photo.attach(io: file, filename: 'u3.jpg', content_type: 'image/jpg')
 user3.save
 
