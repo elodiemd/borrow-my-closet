@@ -4,7 +4,9 @@
 
 <div class= "container">
   <div class="row">
+
     <div class="col">
+
       <h4 class="title text-center">MY BOOKINGS</h4>
       <div class="cards-book col-12 pr-5">
         <% @my_outfits.each do |outfit| %>
@@ -20,50 +22,64 @@
           <% end %>
         <% end %>
       </div>
+
     </div>
 
 
     <div class="col">
-      <h4 class="title text-center">MY BOOKINGS</h4>
-      <br>
-      <h6>Pending</h6>
-      <ul>
+
+        <h4 class="title text-center">MY BOOKINGS</h4>
+        <br>
+        <h6 class="text-center"> <em>Pending</em> </h6>
+      <div class="row">
         <% @bookings_lender_pending.each do |booking| %>
-          <li>
-            <%= booking.outfit.name %> - from: <%= booking.start_date %>, to: <%= booking.end_date %>, by <%= booking.user.user_name %> | 
-      Actions: <%= button_to "Accept", accept_booking_path(booking), method: 'patch' %> || <%= button_to "Reject", reject_booking_path(booking), method: 'patch' %>
-          </li>
-        <% end %>
-      </ul>
-      <h6>Accepted</h6>
-      <ul>
-        <% @bookings_lender_accepted.each do |booking| %>
-          <li>
-            <%= booking.outfit.name %> - from: <%= booking.start_date %>, to: <%= booking.end_date %>, by <%= booking.user.user_name %>
-          </li>
-        <% end %>
-      </ul>
-      <hr>
+
+        <div class="col-2">
+            <%= cl_image_tag booking.outfit.photos.first.key, class:"avatar"%> <br>
+        </div>
+
+        <div class="col-10">
+          <div class="row">
+            <p>from: <%= booking.start_date %>, to: <%= booking.end_date %> <br>
+            by <%= booking.user.user_name %> </p>
+          </div>
+        </div>
+      </div>
+        <div class="row d-flex justify-content-center">
+          <%= button_to "Accept", accept_booking_path(booking), method: 'patch', class:"btn-ghost" %> <%= button_to "Reject", reject_booking_path(booking), method: 'patch', class:"btn-gradient" %>
+          <% end %>
+        </div>
+        <h6 class="text-center mt-5"> <em>Accepted</em> </h6>
+
+      <div class="row">
+      <br>
+          <% @bookings_lender_accepted.each do |booking| %>
+              <%= booking.outfit.name %> - from: <%= booking.start_date %>, to: <%= booking.end_date %>, by <%= booking.user.user_name %>
+          <% end %>
+        <hr>
+      </div>
     </div>
 
     <div class="col">
-      <h4 class="title text-center">MY REQUESTS</h4>
-      <h4>Pending</h4>
-      <ul>
+        <h4 class="title text-center">MY REQUEST</h4>
+        <br>
+        <h6 class="text-center"> <em>Pending</em> </h6>
+      <div class="row">
         <% @bookings_borrower_pending.each do |booking| %>
-          <li>
-            <%= booking.outfit.name %> - from: <%= booking.start_date %>, to: <%= booking.end_date %>, by <%= booking.outfit.user.user_name %>
-          </li>
-        <% end %>
-      </ul>
-      <h4>Accepted</h4>
-      <ul>
+        <div class="col-2">
+            <%= cl_image_tag booking.outfit.photos.first.key, class:"avatar"%> <br>
+        </div>
+
+        <div class="col-10">
+          <p> from: <%= booking.start_date %>, to: <%= booking.end_date %><br>
+          by <%= booking.outfit.user.user_name %></p>
+          <% end %>
+        </div>
+        <h6 class="text-center mt-5"> <em>Accepted</em> </h6>
         <% @bookings_borrower_accepted.each do |booking| %>
-          <li>
             <%= booking.outfit.name %> - from: <%= booking.start_date %>, to: <%= booking.end_date %>, by <%= booking.outfit.user.user_name %>
-          </li>
         <% end %>
-      </ul>
+        </div>
     </div>
   </div>
 </div>
