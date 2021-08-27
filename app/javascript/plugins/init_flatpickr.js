@@ -1,6 +1,4 @@
 import flatpickr from "flatpickr";
-// import rangePlugin from "flatpickr/dist/plugins/rangePlugin";
-
 
 const setTodaysDate = () => {
   const date = new Date()
@@ -9,16 +7,20 @@ const setTodaysDate = () => {
 
 
 const initFlatpickr = () => {
-  const dates = JSON.parse(document.querySelector('.datepicker').dataset.dates)
-  console.log('%cinit_flatpickr.js line:13 typeof dates', 'color: #007acc;', typeof dates);
-  flatpickr(".datepicker", {
-    altInput: true,
-    mode: "range",
-    inline: true,
-    minDate: Date.now(),
-    disable: dates
-  });
-
+  if (document.querySelector('.datepicker')) {
+    const dates = JSON.parse(document.querySelector('.datepicker').dataset.dates)
+    const calendar = flatpickr(".datepicker", {
+      altInput: true,
+      mode: "range",
+      inline: true,
+      minDate: Date.now(),
+      disable: JSON.parse(document.querySelector('.datepicker').dataset.dates)
+    });
+    // if (dates) {
+    //   calendar['disable'] = JSON.parse(document.querySelector('.datepicker').dataset.dates)
+    //   console.log('%cinit_flatpickr.js line:20 calendar', 'color: #007acc;', calendar);
+    // }
+  }
 }
 
 export { initFlatpickr };
