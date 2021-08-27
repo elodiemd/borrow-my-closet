@@ -36,20 +36,31 @@ class BookingsController < ApplicationController
     end
   end
 
+  def accept
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.update(status: "accepted")
+    redirect_to bookings_path
+  end
+
+  def reject
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.update(status: "rejected")
+    redirect_to bookings_path
+  end
+
   private
 
   def booking_params
     params.require(:booking).permit(:start_date, :end_date)
   end
 
-  def set_dates
-    dates = params[:booking][:start_date].split
-    params[:booking][:start_date] = dates[0]
-    params[:booking][:end_date] = dates[2]
+  def update_booking_params
+    params.require(:booking).permit(:status)
   end
 
   def booked_dates
-    # doesn't work properly yet, affects all the bookings, not just the ones of the outfit
     @booked_dates = Booking.where(outfit: @outfit).map { |booking| { from: booking[:start_date].to_s, to: booking[:end_date].to_s } }
   end
 end
