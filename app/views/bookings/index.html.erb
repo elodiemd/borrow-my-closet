@@ -6,14 +6,14 @@
   <div class="row">
     <div class="col">
       <h3>My outfits</h3>
-      <div class="cards-trip col-6 pr-5">
+      <div class="cards-show col-6 pr-5">
     <% @my_outfits.each do |outfit| %>
       <%= link_to outfit_path(outfit) do %>
-        <div class="card-trip">
+        <div class="card-show">
           <% if outfit.photos.attached? %>
             <%= cl_image_tag outfit.photos.first.key %>
           <% end %>
-          <div class="card-trip-infos">
+          <div class="card-show-infos">
             <h2><%= outfit.name %></h2>
             <div class="description">
               <p><%= outfit.description %></p>
