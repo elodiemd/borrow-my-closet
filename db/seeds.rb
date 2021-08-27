@@ -10,6 +10,7 @@
 # Movie.create(title: "Wonder Woman 1984", overview: "Wonder Woman comes into conflict with the Soviet Union during the Cold War in the 1980s", poster_url: "https://image.tmdb.org/t/p/original/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg", rating: 6.9)
 Outfit.destroy_all
 User.destroy_all
+Booking.destroy_all
 
 puts "creating user"
 user1 = User.create!(email: "claire@lewagon.com", password: 'happybirthday', user_name: "claire")
