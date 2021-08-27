@@ -1,8 +1,4 @@
-<h1>Booking pop-up</h1>
-
-<% if policy(Booking).create? %>
-  <%= link_to "New booking", new_outfit_booking_path %>
-<% end %>
+<h1>New booking</h1>
 
 <div class="container">
   <%= render 'form' %>
