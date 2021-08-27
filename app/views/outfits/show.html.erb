@@ -1,30 +1,30 @@
-<p id="notice"><%= notice %></p>
-
-<div class="container my-3">
-  <h2><strong><%= @outfit.name %></strong></h2>
-</div>
-
-<div class="container d-flex">
-  <%# Idea: possible to add several pictures & implement a carousel from Bootstrap? %>
-  <div class="outfit-name">
-    <div class="w-100">
+<div>
+  <div class="container text-left mt-5">
+    <%= link_to 'Back', outfits_path, class:"btn-ghost btn-back" %>
+  </div>
+  <div class="show-container d-flex justify-content-center mt-5 mb-2">
+    <%# <% @outfits.each do |outfit| %>
+      <%# <%= cl_image_tag outfit.photos.first.key %>
+      <%# <% end %>
       <% @outfit.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, class:"w-50" %>
+        <%= cl_image_tag photo.key, class:"show-picture" %>
       <% end %>
+      <div class="show-details">
+        <h2><%= @outfit.name %></h2>
+        <p><%= @outfit.description %></p>
+        <h3 class="show-price"><%= "#{@outfit.price_per_day} €" %></h3>
+        <div class="container text-center">
+          <%= link_to new_outfit_booking_path(@outfit) do %>
+            <button class="btn-flat">Book</button>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div id="map"
+     class="map-show mx-auto"
+     style="width: 1100px; height: 50vh;"
+     data-markers="<%= @marker.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
-
-  <div class="card-product-infos">
-    <div class="card-name">
-      <p><%= @outfit.description %></p>
-    </div>
-    <div class="card-loc-price">
-      <h3><%= @outfit.location %></h3>
-      <h3><%= @outfit.price_per_day %></h3>
-    </div>
-  </div>
-</div>
-
-<div class="container my-3">
-  <%= link_to 'Outfits list', outfits_path %>
 </div>

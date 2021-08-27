@@ -1,26 +1,32 @@
-<div class="container">
-  <h1 class="text-center my-3">Outfits</h1>
-
-  <% @outfits.each do |outfit| %>
-    <div class="card-product">
-    <% if outfit.photos.attached? %>
-      <%= cl_image_tag outfit.photos.first.key %>
+<h1 class="text-center my-3">Find the perfect <em>Outfit</em> ✨</h1>
+<% if policy(Outfit).new? %>
+  <div class="container text-center pt-5">
+    <%= link_to 'Add new Outfit', new_outfit_path, class:"btn-flat"%>
+  </div>
+<% end %>
+<div class="container d-flex pt-5">
+  <div class="cards-trip col-6 pr-5">
+    <% @outfits.each do |outfit| %>
+      <%= link_to outfit_path(outfit) do %>
+        <div class="card-trip">
+          <% if outfit.photos.attached? %>
+            <%= cl_image_tag outfit.photos.first.key %>
+          <% end %>
+          <div class="card-trip-infos">
+            <h2><%= outfit.name %></h2>
+            <div class="description">
+              <p><%= outfit.description %></p>
+              <h3><%= "#{outfit.price_per_day}€" %></h3>
+            </div>
+          </div>
+        </div>
       <% end %>
-      <div class="card-product-infos">
-        <div class="card-name">
-          <h2><%= link_to "#{outfit.name}", outfit_path(outfit) %></h2>
-          <h3><%= outfit.location %></h3>
-          <p><%= outfit.description %></p>
-        </div>
-        <div class="card-price">
-          <h3><%= "#{outfit.price_per_day} €" %></h3>
-        </div>
-      </div>
-    </div>
-  <% end %>
-
-  <% if policy(Outfit).new? %>
-    <%= link_to 'Add new Outfit', new_outfit_path %>
-  <% end %>
-
+    <% end %>
+  </div>
+  <div id="map"
+     class="map map-index col-6"
+     style="width: 100%; height: 90vh;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>

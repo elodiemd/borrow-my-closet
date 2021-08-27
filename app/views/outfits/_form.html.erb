@@ -1,10 +1,10 @@
 <%= simple_form_for @outfit, class: "form form-outfit" do |f| %>
   <%= f.input :name %>
   <%= f.input :description %>
-  <%= f.input :location %>
+  <%= f.input :address %>
   <%= f.input :price_per_day %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <hr>
   <%# maybe add a cancel button later on with redirection %>
-  <%= f.button :submit, class: "btn mt-2 mb-4 col-12" %>
+  <%= f.button :submit, class: "btn-gradient" %>
 <% end %>

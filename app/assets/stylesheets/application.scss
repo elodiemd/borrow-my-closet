@@ -7,6 +7,8 @@
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder'; // searching on map
+@import "flatpickr/dist/flatpickr"; // datepicker
 
 // Your CSS partials
 @import "components/index";

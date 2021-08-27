@@ -1,0 +1,35 @@
+#map.map-index {
+  position: sticky;
+  top: 70px;
+}
+
+.mapboxgl-popup {
+  max-width: 150px;
+  text-decoration: none;
+  color: black;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: 'Catamaran', sans-serif;
+  text-decoration: none;
+  color: black;
+
+}
+
+.mapboxgl-popup-content h2 {
+  padding-top: 10px;
+  text-align: center;
+  font-family: 'Besley', serif;
+  font-size: 20px;
+  color: black;
+}
+
+.mapboxgl-popup  a {
+  text-decoration: none;
+}
+
+
+.mapboxgl-popup-content p {
+  color: black;
+}

@@ -2,12 +2,34 @@ class OutfitsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @outfits = policy_scope(Outfit).order(created_at: :desc) # replaces @outfits = Outfit.all
+    # Search feature
+    if params[:query]
+      @outfits = Outfit.search_by_name_address_and_description(params[:query])
+    else
+      @outfits = policy_scope(Outfit).order(created_at: :desc) # replaces @outfits = Outfit.all
+    end
+    policy_scope @outfits
+
+    # Map feature
+    @markers = @outfits.geocoded.map do |outfit|
+      {
+        lat: outfit.latitude,
+        lng: outfit.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { outfit: outfit }), # popups on map
+        image_url: helpers.asset_url('map_marker.png') # custom map marker
+      }
+    end
   end
 
   def show
     @outfit = Outfit.find(params[:id])
     authorize @outfit
+    @marker = {
+      lat: @outfit.latitude,
+      lng: @outfit.longitude,
+      info_window: render_to_string(partial: "info_window", locals: { outfit: @outfit }), # popups on map
+      image_url: helpers.asset_url('map_marker.png') # custom map marker
+    }
   end
 
   def new
@@ -32,6 +54,6 @@ class OutfitsController < ApplicationController
   private
 
   def outfit_params
-    params.require(:outfit).permit(:name, :location, :description, :price_per_day, photos: [])
+    params.require(:outfit).permit(:name, :address, :description, :price_per_day, photos: [])
   end
 end
