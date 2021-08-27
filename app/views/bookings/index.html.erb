@@ -1,10 +1,50 @@
 <h1>Booking Dashboard</h1>
-<h2>My bookings</h2>
+<h2>Hi, <%= @me.user_name %>!</h2>
+<hr>
+
+<h2>My outfits</h2>
+<ul>
+  <% @my_outfits.each do |outfit| %>
+    <li>
+      <%= link_to outfit_path(outfit) do %>
+        <%= outfit.name %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+<hr>
 <h2>My clothes being booked</h2>
-
-<% @bookings.each do |booking| %>
-  <%= booking.outfit.name %>
-  <%= booking.start_date %>
-  <%= booking.end_date %>
-<% end %>
-
+<h4>Pending</h4>
+<ul>
+  <% @bookings_lender_pending.each do |booking| %>
+    <li>
+      <%= booking.outfit.name %> - from: <%= booking.start_date %>, to: <%= booking.end_date %>, by <%= booking.user.user_name %>
+    </li>
+  <% end %>
+</ul>
+<h4>Accepted</h4>
+<ul>
+  <% @bookings_lender_accepted.each do |booking| %>
+    <li>
+      <%= booking.outfit.name %> - from: <%= booking.start_date %>, to: <%= booking.end_date %>, by <%= booking.user.user_name %>
+    </li>
+  <% end %>
+</ul>
+<hr>
+<h2>My bookings</h2>
+<h4>Pending</h4>
+<ul>
+  <% @bookings_borrower_pending.each do |booking| %>
+    <li>
+      <%= booking.outfit.name %> - from: <%= booking.start_date %>, to: <%= booking.end_date %>, by <%= booking.outfit.user.user_name %>
+    </li>
+  <% end %>
+</ul>
+<h4>Accepted</h4>
+<ul>
+  <% @bookings_borrower_accepted.each do |booking| %>
+    <li>
+      <%= booking.outfit.name %> - from: <%= booking.start_date %>, to: <%= booking.end_date %>, by <%= booking.outfit.user.user_name %>
+    </li>
+  <% end %>
+</ul>
