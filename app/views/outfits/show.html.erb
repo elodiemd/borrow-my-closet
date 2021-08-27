@@ -14,7 +14,9 @@
         <p><%= @outfit.description %></p>
         <h3 class="show-price"><%= "#{@outfit.price_per_day} €" %></h3>
         <div class="container text-center">
-          <button class="btn-flat">Book</button>
+          <%= link_to new_outfit_booking_path(@outfit) do %>
+            <button class="btn-flat">Book</button>
+          <% end %>
         </div>
       </div>
     </div>

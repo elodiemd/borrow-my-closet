@@ -1,3 +1,10 @@
 <h1>Booking Dashboard</h1>
 <h2>My bookings</h2>
 <h2>My clothes being booked</h2>
+
+<% @bookings.each do |booking| %>
+  <%= booking.outfit.name %>
+  <%= booking.start_date %>
+  <%= booking.end_date %>
+<% end %>
+
